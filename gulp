@@ -1,0 +1,30 @@
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+
+// Compilar o arquivo SCSS para CSS
+function compileSass() {
+  return gulp.src('styles.scss')
+    .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest('css'))
+    .pipe(browserSync.stream());
+}
+
+// Iniciar o servidor para atualizações em tempo real
+function serve() {
+  browserSync.init({
+    server: {
+      baseDir: './',
+    }
+  });
+
+  gulp.watch('styles.scss', compileSass);
+  gulp.watch('index.html').on('change', browserSync.reload);
+}
+
+exports.default = serve;
