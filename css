@@ -1,0 +1,37 @@
+$rosa-pastel: #FFB6C1;
+$azul-pastel: #ADD8E6;
+
+header {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  background-color: $rosa-pastel;
+  padding: 20px;
+}
+
+.carousel {
+  /* Estilos do carousel aqui */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  background-color: $azul-pastel;
+  width: 45%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
